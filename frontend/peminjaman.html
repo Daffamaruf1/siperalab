@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Formulir peminjaman SIPERALAB">
+ <title>SIPERALAB | Peminjaman</title>
+ <link rel="stylesheet" href="/src/styles.css">
+ </head>
+ <body>
+ <header class="site-header">
+ <a class="brand" href="/">SIPERALAB</a>
+ <nav aria-label="Navigasi utama">
+ <a href="/">Beranda</a>
+ <a href="/peralatan.html">Peralatan</a>
+ <a href="/peminjaman.html">Ajukan Peminjaman</a>
+ </nav>
+ </header>
+ <main>
+ <h1>Ajukan Peminjaman</h1>
+ <p>
+ Isi data berikut. Pada Modul 2 formulir belum disimpan ke backend;
+ fokusnya adalah struktur, label, nama data, dan validasi HTML.
+ </p>
+ <form action="/peminjaman" method="post">
+<fieldset>
+<legend>Data peminjam</legend>
+
+<label for="nim">NIM</label>
+<input
+  id="nim"
+  name="nim"
+  type="text"
+  inputmode="numeric"
+  pattern="[0-9]{10}"
+  maxlength="10"
+  required
+>
+
+<label for="nama">Nama lengkap</label>
+<input
+  id="nama"
+  name="nama"
+  type="text"
+  autocomplete="name"
+  minlength="3"
+  required
+>
+</fieldset>
+<fieldset>
+<legend>Detail peminjaman</legend>
+
+<label for="alat">Peralatan</label>
+<select id="alat" name="alat" required>
+<option value="">-- Pilih peralatan --</option>
+<option value="multimeter">Multimeter Digital</option>
+<option value="router">Router</option>
+<option value="kamera">Kamera</option>
+</select>
+
+<label for="tanggal-pinjam">Tanggal peminjaman</label>
+<input
+  id="tanggal-pinjam"
+  name="tanggal_pinjam"
+  type="date"
+  required
+>
+
+<label for="durasi">Durasi peminjaman (hari)</label>
+<p id="durasi-hint" class="hint">Durasi 1 sampai 7 hari.</p>
+<input
+  id="durasi"
+  name="durasi"
+  type="number"
+  min="1"
+  max="7"
+  aria-describedby="durasi-hint"
+  required
+>
+
+<label for="keperluan">Keperluan</label>
+<textarea
+  id="keperluan"
+  name="keperluan"
+  minlength="10"
+  maxlength="300"
+  rows="5"
+  required
+></textarea>
+</fieldset>
+
+<div>
+<input
+  id="setuju"
+  name="setuju"
+  type="checkbox"
+  value="ya"
+  required
+>
+<label for="setuju">
+Saya menyetujui aturan peminjaman laboratorium.
+</label>
+</div>
+
+<button type="submit">Kirim pengajuan</button>
+</form>
+
+ </main>
+ <footer>
+ <p><a href="/peralatan.html">Kembali ke katalog</a></p>
+ </footer>
+ <script type="module" src="/src/main.js"></script>
+ </body>
+</html>
