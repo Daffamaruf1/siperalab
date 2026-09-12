@@ -1,0 +1,21 @@
+{
+  "name": "siperalab",
+  "version": "1.0.0",
+  "description": "Sistem Informasi Peminjaman Alat Laboratorium",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Daffa Ma'ruf",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.2.2"
+  },
+  "enginers": {
+    "node": ">=24 <25"
+  }
+}
