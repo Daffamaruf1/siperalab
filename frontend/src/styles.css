@@ -1,19 +1,40 @@
-:root {
+*, *::before, *::after {
+ box-sizing: border-box;
+}
+
+ :root {
+ --color-primary: #1d4ed8;
+ --color-primary-dark: #1e3a8a;
+ --color-surface: #ffffff;
+ --color-background: #f5f7fb;
+ --color-border: #cbd5e1;
+ --color-text: #1f2937;
+ --radius: 0.75rem;
+ --space: 1rem;
  font-family: system-ui, sans-serif;
  line-height: 1.5;
 }
 body {
- max-width: 960px;
- margin: 0 auto;
- padding: 1rem;
+ margin: 0;
+ background: var(--color-background);
+ color: var(--color-text);
 }
-.site-header {
- display: flex;
- justify-content: space-between;
- align-items: center;
- gap: 1rem;
- padding-bottom: 0.75rem;
- border-bottom: 1px solid #cbd5e1;
+main, .site-header, .site-footer {
+ width: min(1100px, calc(100% - 2rem));
+ margin-inline: auto;
+}
+ .site-header {
+ padding-block: 1rem;
+ border-bottom: 1px solid var(--color-border);
+}
+.brand {
+ color: var(--color-primary-dark);
+ font-weight: 700;
+ text-decoration: none;
+}
+nav a {
+ color: var(--color-primary);
+ margin-right: 1rem;
 }
 nav {
  display: flex;
@@ -23,23 +44,34 @@ img {
  max-width: 100%;
  height: auto;
 }
-article,
-fieldset {
- margin: 1rem 0;
+ .equipment-card {
+ background: var(--color-surface);
+ border: 1px solid var(--color-border);
+ border-radius: var(--radius);
  padding: 1rem;
- border: 1px solid #cbd5e1;
+ margin-block: 1rem;
+}
+.equipment-card img {
+ max-width: 100%;
+ height: auto;
+}
+
+fieldset {
+ margin-block: 1rem;
+ padding: 1rem;
+ border: 1px solid var(--color-border);
+ border-radius: var(--radius);
 }
 label {
  display: block;
- margin-top: 0.75rem;
- font-weight: 600;
+ margin-top: .75rem;
 }
-input,
-select,
-textarea,
-button {
+input, select, textarea {
+ width: 100%;
+ padding: .7rem;
+ border: 1px solid var(--color-border);
+ border-radius: .5rem;
  font: inherit;
- padding: 0.5rem;
 }
 textarea {
  width: min(100%, 36rem);
@@ -47,4 +79,8 @@ textarea {
 .hint {
 margin-top: 0.25rem;
  color: #475569;
+}
+input:focus, select:focus, textarea:focus, button:focus, a:focus {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
 }
