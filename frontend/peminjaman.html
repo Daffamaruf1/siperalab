@@ -1,111 +1,65 @@
 <!doctype html>
 <html lang="id">
- <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="Formulir peminjaman SIPERALAB">
- <title>SIPERALAB | Peminjaman</title>
- <link rel="stylesheet" href="/src/styles.css">
- </head>
- <body>
- <header class="site-header">
- <a class="brand" href="/">SIPERALAB</a>
- <nav aria-label="Navigasi utama">
- <a href="/">Beranda</a>
- <a href="/peralatan.html">Peralatan</a>
- <a href="/peminjaman.html">Ajukan Peminjaman</a>
- </nav>
- </header>
- <main>
- <h1>Ajukan Peminjaman</h1>
- <p>
- Isi data berikut. Pada Modul 2 formulir belum disimpan ke backend;
- fokusnya adalah struktur, label, nama data, dan validasi HTML.
- </p>
- <form action="/peminjaman" method="post">
-<fieldset>
-<legend>Data peminjam</legend>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulir peminjaman CAMPUSGEAR">
+  <title>CAMPUSGEAR | Peminjaman</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">CAMPUSGEAR</a>
+    <nav aria-label="Navigasi utama">
+      <a href="/">Beranda</a>
+      <a href="/peralatan.html">Peralatan</a>
+      <a href="/peminjaman.html">Ajukan Peminjaman</a>
+    </nav>
+  </header>
 
-<label for="nim">NIM</label>
-<input
-  id="nim"
-  name="nim"
-  type="text"
-  inputmode="numeric"
-  pattern="[0-9]{10}"
-  maxlength="10"
-  required
->
+  <main>
+    <h1>Formulir Peminjaman Peralatan</h1>
+    
+    <div id="error-message" class="alert-error" style="display: none;"></div>
 
-<label for="nama">Nama lengkap</label>
-<input
-  id="nama"
-  name="nama"
-  type="text"
-  autocomplete="name"
-  minlength="3"
-  required
->
-</fieldset>
-<fieldset>
-<legend>Detail peminjaman</legend>
+    <form id="form-peminjaman" novalidate>
+      <fieldset>
+        <legend>Data Mahasiswa</legend>
+        <label for="nim">NIM (8-12 Digit)</label>
+        <input id="nim" name="nim" type="text" inputmode="numeric" required>
 
-<label for="alat">Peralatan</label>
-<select id="alat" name="alat" required>
-<option value="">-- Pilih peralatan --</option>
-<option value="multimeter">Multimeter Digital</option>
-<option value="router">Router</option>
-<option value="kamera">Kamera</option>
-</select>
+        <label for="nama">Nama Lengkap</label>
+        <input id="nama" name="nama" type="text" required>
+      </fieldset>
 
-<label for="tanggal-pinjam">Tanggal peminjaman</label>
-<input
-  id="tanggal-pinjam"
-  name="tanggal_pinjam"
-  type="date"
-  required
->
+      <fieldset>
+        <legend>Detail Peminjaman</legend>
+        <label for="alat">Pilih Peralatan</label>
+        <select id="alat" name="alat" required>
+          <!-- Options populated dynamically by JS -->
+        </select>
 
-<label for="durasi">Durasi peminjaman (hari)</label>
-<p id="durasi-hint" class="hint">Durasi 1 sampai 7 hari.</p>
-<input
-  id="durasi"
-  name="durasi"
-  type="number"
-  min="1"
-  max="7"
-  aria-describedby="durasi-hint"
-  required
->
+        <label for="jumlah">Jumlah Peminjaman</label>
+        <input id="jumlah" name="jumlah" type="number" min="1" value="1" required>
 
-<label for="keperluan">Keperluan</label>
-<textarea
-  id="keperluan"
-  name="keperluan"
-  minlength="10"
-  maxlength="300"
-  rows="5"
-  required
-></textarea>
-</fieldset>
+        <label for="tanggal-pinjam">Tanggal Peminjaman</label>
+        <input id="tanggal-pinjam" name="tanggal_pinjam" type="date" required>
+      </fieldset>
 
-<div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-<input
-  id="setuju"
-  name="setuju"
-  type="checkbox"
-  value="ya"
-  required
->
-<label for="setuju" style="margin-top: 0;">
-Saya menyetujui aturan peminjaman laboratorium.
-</label>
-</div>
+      <button type="submit" class="btn-primary">Kirim Permohonan Peminjaman</button>
+    </form>
 
- </main>
- <footer>
- <p><a href="/peralatan.html">Kembali ke katalog</a></p>
- </footer>
- <script type="module" src="/src/main.js"></script>
- </body>
+    <section class="history-section">
+      <h2>Riwayat Transaksi Peminjaman</h2>
+      <div id="transaction-history">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="/peralatan.html">Kembali ke katalog</a></p>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
