@@ -36,7 +36,7 @@ export const initialEquipmentData = [
     nama: "Tripod Kamera",
     kategori: "Dokumentasi",
     stok: 8, // Digit terakhir NIM (7) + 1
-    gambar: "/images/lab-equipment.jpg",
+    gambar: "/images/tripod.jpg",
     deskripsi: "Tripod aluminium penopang kamera untuk dokumentasi acara."
   },
   {
@@ -44,7 +44,7 @@ export const initialEquipmentData = [
     nama: "Proyektor Portable",
     kategori: "Presentasi",
     stok: 9, // Digit terakhir NIM (7) + 2
-    gambar: "/images/lab-equipment.jpg",
+    gambar: "/images/proyektor-portable.jpg",
     deskripsi: "Proyektor Full HD untuk presentasi kegiatan mahasiswa."
   },
   {
@@ -52,7 +52,7 @@ export const initialEquipmentData = [
     nama: "Speaker Portable Wireless",
     kategori: "Audio",
     stok: 10, // Digit terakhir NIM (7) + 3
-    gambar: "/images/lab-equipment.jpg",
+    gambar: "/images/portable speaker wireless.jpg",
     deskripsi: "Speaker bluetooth untuk sound system acara organisasi."
   }
 ];
